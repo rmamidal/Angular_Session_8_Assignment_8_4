@@ -1,0 +1,54 @@
+<section id="user">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="form-wrap">
+                    <!-- User Data Submit form-->
+                    <h2>Add User</h2>
+                    <form>
+                        <div class="form-group">
+                            <label> Salutation </label>
+                            <select class="form-control" [(ngModel)]="currentUser.salutation" name="salutation" >
+                                <option [value]="salutation" [disabled]="true">Select Option</option>
+                                <option *ngFor = "let salutation of userSalutationList" [ngValue]="salutation.title">
+                                    {{salutation.title}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> First Name </label>
+                            <input type="text" class="form-control" [(ngModel)]="currentUser.firstName" name="firstName" placeholder="FirstName">
+                        </div>
+                        <div class="form-group">
+                            <label> Last Name </label>
+                            <input type="text" class="form-control" [(ngModel)]="currentUser.lastName" name="lastName" placeholder="LaststName">
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="addUser()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div><!-- User Submission form -->
+        <br/>
+        <br/>
+          <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <!-- Show User list when it has records-->
+                <table *ngIf="userList.length > 0" class="table table-striped table-bordered">
+                    <tr>
+                        <th> Index</th>
+                        <th> Salutation</th>
+                        <th> First Name</th>
+                        <th> Last Name</th>
+                    </tr>
+                    <!-- Looping through userlist-->
+                    <tr *ngFor="let user of userList; let i=index;">
+                        <td>{{i + 1}}</td>
+                        <td>{{user.salutation}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div><!-- User List -->
+    </div>
+</section>
