@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user.component';
 import { UserSalutationService } from './Service/user-salutation.service';
-
+import { LoggingService } from "./Service/logging.service";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { UserSalutationService } from './Service/user-salutation.service';
     BrowserModule,
     FormsModule,
   ],
-  providers: [UserSalutationService], //  Calling this service globally.
+  providers: [UserSalutationService, LoggingService], //  Calling this service globally.
   bootstrap: [UserComponent]
 })
 export class AppModule { }
